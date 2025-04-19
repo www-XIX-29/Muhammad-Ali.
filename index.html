@@ -1,0 +1,353 @@
+
+<!DOCTYPE html>
+<html lang="ar"> 
+<head>
+  <meta property="og:image" content="https://i.imgur.com/RF0p0LF.png">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://i.imgur.com/RF0p0LF.png">
+  
+  <meta name="keywords" content="تطبيقات, تحميل تطبيقات, اندرويد, ايفون, رابط مباشر, تطبيق مجاني, متجر تطبيقات, APK, تطبيقات مهكرة, برامج موبايل">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title> تطبيقات محمد علي للإتصالات </title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(to bottom right, #2c3e50, #3498db);
+      font-family: 'Cairo', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .circle-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid white;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+      margin-top: 40px;
+      animation: slideFadeDown 1.5s ease forwards;
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+
+    @keyframes slideFadeDown {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      margin-top: 20px;
+      font-size: 24px;
+    }
+
+    .download-buttons {
+      margin: 30px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 100%;
+      max-width: 320px;
+    }
+
+    .download-buttons a {
+      display: block;
+      padding: 14px 20px;
+      background: linear-gradient(45deg, #1abc9c, #16a085);
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 18px;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.5s ease;
+    }
+
+    .download-buttons a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.2);
+      transform: skewX(-30deg);
+      transition: left 0.5s ease;
+      z-index: 0;
+    }
+
+    .download-buttons a:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(45deg, #3498db, #2980b9);
+    }
+
+    .download-buttons a:hover::before {
+      left: 100%;
+    }
+
+    .download-buttons a.loading {
+      pointer-events: none;
+      color: transparent;
+    }
+
+    .download-buttons a.loading::after {
+      content: attr(data-countdown);
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      z-index: 2;
+    }
+
+    .download-buttons a.loading::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: -6px;
+      right: -6px;
+      bottom: -6px;
+      border-radius: 40px;
+      z-index: 0;
+      background: conic-gradient(#3498db 0%, transparent 0%);
+      animation: spinBorder 10s linear forwards;
+    }
+
+    @keyframes spinBorder {
+      0% {
+        transform: rotate(0deg);
+        background: conic-gradient(#3498db 0%, transparent 0%);
+      }
+      100% {
+        transform: rotate(360deg);
+        background: conic-gradient(#2980b9 0%, transparent 0%);
+      }
+    }
+
+    .social-links {
+      margin-top: auto;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .social-links a {
+      color: white;
+      font-size: 24px;
+      text-decoration: none;
+      transition: transform 0.3s, color 0.3s;
+    }
+
+    .social-links a:hover {
+      transform: scale(1.2);
+      color: #f1c40f;
+    }
+
+    .password-container {
+      margin-top: 20px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .password-container input {
+      padding: 14px;
+      font-size: 20px;
+      border: 2px solid #fff;
+      border-radius: 20px;
+      width: 220px;
+      background: white;
+      color: black;
+      text-align: center;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .password-container input:focus {
+      border-color: #f1c40f;
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 0 10px rgba(241, 196, 15, 0.7);
+    }
+
+    .eye-icon {
+      position: absolute;
+      right: 15px;
+      cursor: pointer;
+      font-size: 24px;
+      color: red;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .eye-icon.show {
+      color: green;
+    }
+
+    .eye-icon:hover {
+      transform: scale(1.2);
+    }
+
+    .login-button {
+      margin-top: 20px;
+      padding: 14px 30px;
+      background-color: #f1c40f;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 18px;
+      cursor: pointer;
+      display: none;
+    }
+
+    .login-button.show {
+      display: block;
+    }
+
+    @media (max-width: 600px) {
+      .circle-image {
+        width: 150px;
+        height: 150px;
+      }
+
+      h1 {
+        font-size: 20px;
+      }
+
+      .download-buttons a {
+        font-size: 16px;
+        padding: 12px;
+      }
+
+      .password-container input {
+        width: 220px;
+      }
+    }
+  </style>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <img src="https://i.imgur.com/RF0p0LF.png" alt="صورة دائرية" class="circle-image" />
+  <h1>مرحبا بك في مركز تحميل التطبيقات</h1>
+
+  <div class="download-buttons">
+    <a href="#"
+     data-href="https://www.mediafire.com/file/wycxe51o1hrkz76/base.apk/file">تحميل شام كاش</a>
+    <a href="#" data-href="whatsapp.html">تحميل تطبيق واتساب</a>
+    <a href="#" data-href="wa-business.html">تحميل واتساب أعمال</a>
+    <a href="#" data-href="https://www-xix-29.github.io/WhatsApp/">تحميل تطبيق واتساب معدل</a>
+    <a href="#" data-href="instagram.html">تحميل إنستقرام</a>
+    <a href="#" data-href="https://www.mediafire.com/file/g6rrhr256zyqdea/base.apk/file">تحميل تيليجرام</a>
+    <a href="#" data-href="facebook.html">تحميل فيسبوك</a>
+    <a href="#" data-href="messenger.html">تحميل ماسنجر</a>
+    <a href="#" data-href="youtube.html">تحميل يوتيوب</a>
+    <a href="#" data-href="youtube-mod.html">تحميل يوتيوب معدل</a>
+  </div>
+
+  <div class="password-container">
+    <input type="password" id="password" placeholder="أدخل كلمة السر" />
+    <i class="fas fa-eye eye-icon" id="toggle-password"></i>
+  </div>
+
+  <button class="login-button" id="loginButton">دخول</button>
+
+  <div class="social-links">
+    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://t.me" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+    <a href="https://wa.me" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="mailto:example@email.com"><i class="fas fa-envelope"></i></a>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll('.download-buttons a');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        if (button.classList.contains('loading')) return;
+
+        let countdown = 10;
+        const targetUrl = button.getAttribute('data-href');
+
+        button.classList.add('loading');
+        button.dataset.countdown = countdown;
+
+        const interval = setInterval(() => {
+          countdown--;
+          button.dataset.countdown = countdown;
+
+          const percent = (10 - countdown) * 10;
+          button.style.background = `linear-gradient(to right, #f1c40f ${percent}%, #16a085 ${percent}%)`;
+
+          if (countdown <= 0) {
+            clearInterval(interval);
+            window.location.href = targetUrl;
+          }
+        }, 1000);
+      });
+    });
+
+    const correctPassword = 'XIX1212X';
+    const togglePassword = document.getElementById('toggle-password');
+    const passwordField = document.getElementById('password');
+    const loginButton = document.getElementById('loginButton');
+
+    passwordField.addEventListener('input', () => {
+      const enteredPassword = passwordField.value;
+      if (enteredPassword === correctPassword) {
+        togglePassword.classList.add('show');
+        loginButton.classList.add('show');
+      } else {
+        togglePassword.classList.remove('show');
+        loginButton.classList.remove('show');
+      }
+    });
+
+    togglePassword.addEventListener('click', () => {
+      const type = passwordField.type === 'password' ? 'text' : 'password';
+      passwordField.type = type;
+      togglePassword.classList.toggle('show');
+    });
+
+    loginButton.addEventListener('click', () => {
+      const enteredPassword = passwordField.value;
+      if (enteredPassword === correctPassword) {
+        window.location.href = 'your_next_page.html';
+      } else {
+        alert("كلمة المرور غير صحيحة");
+      }
+    });
+  </script>
+
+</body>
+</html>
